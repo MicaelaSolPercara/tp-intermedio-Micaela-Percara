@@ -37,7 +37,6 @@ export const login = async (req: Request, res: Response) => {
 
     return res.status(200).json({ token });
   } catch (error: any) {
-    // 👇 si el service tira "Credenciales inválidas", esto debe ser 401, NO 500
     if (error?.message === "Credenciales inválidas") {
       return res.status(401).json({ message: "Credenciales inválidas" });
     }
